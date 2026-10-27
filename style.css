@@ -97,10 +97,7 @@ h3 {
 
 /* Smooth tone filters for the video track */
 .girl-container video {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
+    display: flex;
     
     /* Strips neon pink saturation and shifts video tones toward your layout colors */
     mix-blend-mode: luminosity; 
