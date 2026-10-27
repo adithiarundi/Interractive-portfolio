@@ -1,0 +1,82 @@
+/* Load AFTER style.css. Makes the site work on desktop, tablet and phone. */
+
+/* ---------- Global ---------- */
+body { overflow: visible; overflow-x: hidden; }          /* was overflow:hidden, which breaks mobile scrolling */
+
+/* ---------- Hero ---------- */
+.hero { min-height: 100vh; min-height: 100svh; overflow: hidden; touch-action: pan-y; } /* pan-y: swipe sideways to scrub, scroll up/down normally */
+h1 { font-size: clamp(56px, 11vw, 150px); letter-spacing: -0.05em; }
+.cursor { opacity: 0; transition: opacity .3s; }
+.cursor.on { opacity: 1; }
+@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
+
+/* ---------- About ---------- */
+.about-section { width: 100%; }
+.stars-video { width: 100%; height: 100%; }
+.stars-video-overlay { position: relative; width: 100%; height: auto; min-height: 100vh; } /* grows with content instead of clipping it */
+
+/* ---------- Skills / Experience ---------- */
+@media (max-width: 900px), (hover: none) {
+    .skills-section, .ex-section { background-attachment: scroll; } /* "fixed" backgrounds break on iOS */
+}
+.skill-box { --idle: .5; opacity: var(--idle); }
+@media (hover: none) { .skill-box { --idle: .95; } }
+.skill-box:hover { opacity: 1; }
+.slide-left.animate, .slide-right.animate { animation-fill-mode: backwards; } /* lets hover work after the entrance */
+.slide-left:not(.animate)  { opacity: 0; transform: translateX(-80px); }
+.slide-right:not(.animate) { opacity: 0; transform: translateX(80px); }
+@keyframes skillSlideInLeft  { from { opacity: 0; transform: translateX(-80px); } to { opacity: var(--idle, .5); transform: none; } }
+@keyframes skillSlideInRight { from { opacity: 0; transform: translateX(80px); }  to { opacity: var(--idle, .5); transform: none; } }
+
+.ex-card { position: relative; }
+.ex-card h3 { word-spacing: normal; }
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1000px) {
+    .navi nav { gap: 40px; }
+    .contact-network { gap: 24px; }
+}
+@media (max-width: 900px) {
+    .about-container { padding: 70px 24px; }
+    .section-title { padding: 40px 0 0; text-align: center; }
+    .about-content { flex-direction: column; gap: 28px; }
+    .about-text { padding: 0; }
+    .about-text p { padding: 0; font-size: 15px; }
+    .visual-box { margin-right: 0; }
+    .stars-video-overlay { background-size: cover; }
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 700px) {
+    .navi nav { gap: 8px; flex-wrap: wrap; padding: 0 12px; top: 16px; }
+    .navi nav a { font-size: 10px; letter-spacing: 2px; padding: 12px 14px; margin-bottom: 0; }
+
+    .intro { top: 150px; left: 7%; right: 7%; }
+    .small-text { margin-top: 0; font-size: 14px; letter-spacing: 4px; }
+    h1 { font-size: clamp(52px, 17vw, 80px); letter-spacing: -3px; }
+    h3 { font-size: 15px; letter-spacing: 1px; word-spacing: 6px; line-height: 1.3; }
+    .girl-container { left: 50%; width: 115vw; top: 70%; }
+
+    .skills-section, .ex-section { padding: 60px 14px; }
+    .skills-container { padding: 0; }
+    .skills-content { gap: 30px; }
+    .skills-title, .ex-title { font-size: 38px; }
+    .skill-box { padding: 22px 20px; }
+    .box-header h3 { font-size: 1.3rem; }
+    .skill-items li { font-size: 16px; }
+
+    .contact-title { font-size: 30px; }
+}
+@media (max-width: 650px) {
+    .ex-card { padding: 20px; }
+    .ex-card h3 { font-size: 20px; letter-spacing: -.5px; }
+    .ex-card ul { font-size: 15px; }
+    .ex-item.right ul { text-align: left; }
+}
+@media (max-width: 420px) {
+    .column-list, .standard-list { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skill-box { animation: none !important; opacity: var(--idle) !important; transform: none !important; }
+}
