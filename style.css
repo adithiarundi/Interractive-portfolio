@@ -1,0 +1,1066 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* 1. Allows natural vertical scrolling while blocking horizontal breakage */
+    overflow-x: hidden; 
+    overflow-y: auto; 
+    
+    /* 2. Optional: Makes navbar link jumps glide smoothly instead of snapping */
+    scroll-behavior: smooth; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Changed to your pleasant sage green theme */
+    background-color:#65232b; 
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    position: relative; /* Changed from absolute to relative so sections stack naturally below it */
+    width: 100%;
+    min-height: 100vh;  /* Forces the hero cover to take exactly the full height of the screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* A soft visual blend overlay that connects the text area to the video */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Smoothly fades from the background green into a transparent frame */
+    background: linear-gradient(to right,  #670626 35%, rgba(143, 188, 187, 0.4) 65%, transparent 100%);
+    z-index: 3; 
+    pointer-events: none;
+}
+
+.intro {
+    position: absolute;
+    left: 8%;
+    top: 65%;
+    transform: translateY(-50%);
+    z-index: 5; /* Pushes text securely above the blend layer */
+}
+
+.small-text {
+    font-size: 20px;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(70px, 12vw, 180px);
+    line-height: 0.8;
+    font-weight: 800;
+    letter-spacing: -8px;
+}
+
+h3 {
+    font-size: clamp(25px, 5vw, 35px);
+    letter-spacing: 1px;
+    line-height: 0.8;
+    font-weight: 650;
+    word-spacing: 23px; 
+}
+
+.description {
+    color: rgb(173, 137, 137);
+    margin-top: 35px;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/*  color blending setup */
+.girl-container {
+    position: absolute;
+    left: 70%;
+    top: 50%;
+    width: min(80vw, 5000px);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Smooth tone filters for the video track */
+.girl-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    
+    /* Strips neon pink saturation and shifts video tones toward your layout colors */
+    mix-blend-mode: luminosity; 
+    
+    /* Slightly drops video brightness so text pops cleanly over it */
+    filter: brightness(95%) contrast(105%); 
+}
+
+.cursor {
+    position: fixed;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    
+    /* FIX: Prevents the custom cursor from blocking mouse clicks */
+    pointer-events: none; 
+}
+
+
+.cursor span {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #222;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 700px) {
+    .intro {
+        left: 7%;
+        top: 15%;
+        transform: none;
+    }
+    
+    /* Mobile optimization for the new linear background transition */
+    .hero::before {
+        background: linear-gradient(to bottom, #f5e8aa  40%, transparent 85%);
+    }
+    
+    h1 {
+        font-size: 70px;
+    }
+    
+    .description {
+        font-size: 14px
+    }
+    
+    .girl-container {
+        width: 90vw;
+        top : 62%;
+    }
+    
+    .cursor {
+        display: none;
+    }
+}
+
+/* Center-aligned Navbar */
+.navi nav {
+    display: flex;
+    justify-content: center; /* Centers the menu on the screen */
+    gap: 200px;               /* Clean spacing between items */
+    padding: 25px 0;
+    position: absolute;      /* Sits cleanly on top of the hero section */
+    top: 30px;
+    left: 0;
+    width: 100%;
+    z-index: 100;            /* Keeps links clickable above the video/cursor layers */
+}
+
+.navi nav a {
+    color: #ffffff;          /* Adjust based on your background color */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ffffff;/* The outline color and thickness */
+    border-radius: 40px;
+    padding: 10px 24px; 
+}
+
+/* Elegant fade hover effect */
+.navi nav a:hover {
+    opacity: 0.7; 
+    background-color: #ffffff; /* Fills the capsule on hover */
+    color: #000000; 
+}
+
+/* About Section Styling */
+.about-section {
+    position: relative; 
+    width: 105%;
+    min-height: 100vh;  
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a080a; /* Dark base color */  
+}
+
+.stars-video { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 105%; 
+    height: 105%; 
+    object-fit: cover; 
+    z-index: 0; 
+}
+
+/* Dark tint texture layer carrying text safely above background video tracks */
+.stars-video-overlay { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;  
+    background: url('assets/about.png');
+    background-size: 80% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1; 
+    
+    /* FIX: Layout assignments so nested container grids flow cleanly inside it */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.about-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2; /* Keeps text completely over the video and image texture */
+    padding: 80px 40px;
+}
+
+.section-title {
+    margin-bottom: 10px;
+    color: #1a080a; 
+    font-size: clamp(40px, 10vw, 80px);
+    font-weight: 800;
+    line-height: 0.8;
+    letter-spacing: -4px;
+    padding-top: 100px;
+    z-index: 2;
+    padding-left: 45px;
+}
+
+
+/* Layout split: Text on the left, visual elements on the right */
+.about-content {
+    display: flex;
+    gap: 64px;
+    align-items: center;
+    z-index: 2;
+}
+
+.about-text {
+    flex: 1.2;    
+    padding-top: 40px;
+    padding-left: 60px; 
+}
+
+.about-text p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #051524; 
+    margin-bottom: 20px;
+}
+
+.about-text strong {
+    color: #ff5252; 
+}
+
+/* Visual Block on the right side */
+.about-visual {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+}
+
+.visual-box {
+    background-image: url('assets/me.jpeg');
+    background-size: 100% auto;       /* Forces your photo to scale down and fill the entire 300x350 box */   /* Centers your face perfectly inside the box frame */
+    background-repeat: no-repeat;  
+
+    width: 300px;
+    height: 350px;
+    border: 2px dashed #670626; /* Creative layout boundary matching a developer aesthetic */
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #670626;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+    margin-right: 50px;
+}
+/* ==========================================================================
+   SKILLS SECTION STYLES (SINGLE-COLUMN STACKED LAYOUT)
+   ========================================================================== */
+
+.skills-section {
+    padding: 80px 20px;
+    /* This creates a 50% dark overlay layer above your image to make it look darker and faded */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/sk.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden; /* Crucial to prevent horizontal scroll bars during slide-in animations */
+    
+}
+
+.skills-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Centered Title at Top */
+.skills-title {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #FFFD74;
+    letter-spacing: 3px;
+    margin-bottom: 80px; 
+    font-size: clamp(40px, 10vw, 80px);
+    font-weight: 800;
+    line-height: 0.8;
+}
+
+.skills-content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Vertical spacing between the stacked sections */
+}
+
+/* Base Skill Card Structure & Hover Behavior */
+.skill-box {
+    background: white;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 50px 60px; /* Balanced padding for a wide aspect ratio */
+    border-radius: 20px;
+    height: fit-content;
+    width: 100%; /* Forces the box to stretch fully to the right edge */
+    color:black;
+    /* Low brightness idle state when cursor is far */
+    filter: brightness(1);
+    opacity: 0.5;
+    
+    /* Transitions for lightning up when cursor moves near */
+    transition: filter 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                background 0.4s ease;
+}
+.skill-box:hover .box-header h3 {
+    color: #ffffff;
+}
+.skill-box:hover {
+    filter: brightness(1);
+    background: black;
+    transform: translateY(-5px);
+}
+/* REMOVED: Grid positions and top margins that were causing the zigzag pattern */
+.dev-box,
+.design-box,
+.tools-box,
+.professional-box {
+    /* Elements will now naturally stack one under another in source order */
+    margin-top: 0; 
+}
+
+
+/* Header Variations */
+.box-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.box-header h3 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: black;
+    font-weight: 600;
+}
+
+.skill-arrow {
+    font-size: 1.8rem;
+    color: #00bcd4; 
+    font-weight: bold;
+}
+
+/* Heading Alignment Contexts */
+.left-header { justify-content: flex-start; }
+.right-header { justify-content: flex-end; }
+
+/* Lists Options */
+.skill-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 12px;
+}
+
+/* Multi-column layout for packed text - expands list across the wide box */
+.column-list {
+    display: grid;
+    /* You can increase this to repeat(3, 1fr) or repeat(4, 1fr) if you want 
+       the words to spread out even more horizontally across the wide box! */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 16px;
+}
+
+.standard-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Spreads tools/professional wide too */
+    gap: 16px;
+}
+
+.skill-items li {
+    font-size: 20px;
+    color:black;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+}
+
+.skill-box:hover .skill-items li {
+    color: #e0e0e0;
+}
+
+.skill-items li::before {
+    content: "•";
+    color: #00bcd4;
+    font-weight: bold;
+}
+
+.slide-left.animate {
+    animation: skillSlideInLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.slide-right.animate {
+    animation: skillSlideInRight 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes skillSlideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+    100% {
+        opacity: 0.5;
+        transform: translateX(0);
+    }
+}
+
+@keyframes skillSlideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+    100% {
+        opacity: 0.5;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive view tweaks */
+@media (max-width: 850px) {
+    .column-list, .standard-list {
+        grid-template-columns: repeat(2, 1fr); /* Drops to 2 columns on small screens */
+    }
+}
+
+/* ==========================================================================
+   EXPERIENCE SECTION STYLES 
+   ========================================================================== */
+
+/* Main section */
+.ex-section {
+    padding: 80px 20px;
+    /* This creates a 50% dark overlay layer above your image to make it look darker and faded */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/ex.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden; /* Crucial to prevent horizontal scroll bars during slide-in animations */
+}
+
+.ex-container {
+    max-width: 1300px;
+    margin: auto;
+}
+
+.ex-title {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #fdf59c;
+    letter-spacing: 3px;
+    margin-bottom: 80px; 
+    font-size: clamp(40px, 10vw, 80px);
+    font-weight: 800;
+    line-height: 0.8;
+}
+
+/* Timeline container */
+.ex-content {
+    position: relative;
+    padding: 50px 0;
+}
+
+/* Central vertical line */
+.ex-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: #ffffff;
+    transform: translateX(-50%);
+}
+
+/* Each timeline item */
+.ex-item {
+    position: relative;
+    width: 50%;
+    padding: 25px 40px;
+    box-sizing: border-box;
+}
+
+/* Alternate left and right */
+.ex-item.left {
+    left: 0;
+    text-align: left;
+}
+
+.ex-item.right {
+    left: 50%;
+    text-align: right;
+}
+
+.ex-card {
+    background: white;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 50px 60px; /* Balanced padding for a wide aspect ratio */
+    border-radius: 20px;
+    height: fit-content;
+    width: 100%; /* Forces the box to stretch fully to the right edge */
+    color:black;
+    /* Low brightness idle state when cursor is far */
+    filter: brightness(0.9);
+    opacity: 0.9;
+    
+    /* Transitions for lightning up when cursor moves near */
+    transition: filter 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                background 0.4s ease;
+}
+
+.ex-card:hover {
+    filter: brightness();
+    background: black;
+    transform: translateY(-5px);
+}
+/* Horizontal branches */
+.ex-item.left .ex-card::after,
+.ex-item.right .ex-card::after {
+    content: "";
+    position: absolute;
+    top: 30px;
+    width: 40px;
+    height: 3px;
+    background: #ffffff;
+}
+
+.ex-item.left .ex-card::after {
+    right: -40px;
+}
+
+.ex-item.right .ex-card::after {
+    left: -40px;
+}
+
+/* Circular points on the center line */
+.ex-item::after {
+    content: "";
+    position: absolute;
+    top: 48px;
+    width: 15px;
+    height: 15px;
+    background: #5c0800;
+    border: 4px solid white;
+    border-radius: 50%;
+    box-sizing: content-box;
+    z-index: 2;
+}
+
+.ex-item.left::after {
+    right: -11px;
+}
+
+.ex-item.right::after {
+    left: -11px;
+}
+
+/* Text formatting */
+/* Update your heading styles to fix the overlapping and spacing */
+.ex-card h3 {
+    margin-top: 0;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: -2px; /* Reduces letter spacing so it fits neatly */
+    line-height: 1.2;     /* Prevents text overlap if it wraps */   /* Ensures heading text is aligned to the right */
+}
+
+/* Update your general card list rules to clean up alignment */
+.ex-card ul {
+    padding-left: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+    list-style-type: none; /* Removes the stray bullet marks completely */     /* Aligns all list items/sub-text to the right */
+}
+
+/* If you are using specific items for the right side, make sure their lists align */
+.ex-item.right ul {
+    text-align: right;
+    padding-right: 0;
+}
+
+
+
+/* Mobile responsive layout */
+@media (max-width: 650px) {
+    .ex-content::before {
+        left: 12px;
+    }
+
+    .ex-item,
+    .ex-item.left,
+    .ex-item.right {
+        width: 100%;
+        left: 0;
+        padding: 15px 0 15px 40px;
+        text-align: left;
+    }
+
+    .ex-item.left ul {
+        padding-left: 20px;
+        list-style-position: outside;
+    }
+
+    .ex-item.left .ex-card::after,
+    .ex-item.right .ex-card::after {
+        left: -28px;
+        right: auto;
+        width: 28px;
+    }
+
+    .ex-item.left::after,
+    .ex-item.right::after {
+        left: 2px;
+        right: auto;
+    }
+}
+
+/* =========================================
+   EXPERIENCE SCROLL ANIMATIONS
+   ========================================= */
+
+/* Cards start hidden and slightly outside the timeline */
+.ex-item.left .ex-card {
+    opacity: 0;
+    transform: translateX(-80px);
+}
+
+.ex-item.right .ex-card {
+    opacity: 0;
+    transform: translateX(80px);
+}
+
+/* Smooth animation when cards enter the screen */
+.ex-item .ex-card {
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.25, 1, 0.5, 1),
+        background-color 0.4s ease,
+        filter 0.4s ease;
+}
+
+/* Reveal left and right cards */
+.ex-item.left.show-card .ex-card,
+.ex-item.right.show-card .ex-card {
+    opacity: 0.9;
+    transform: translateX(0);
+}
+
+/* Keep the hover effect after the animation */
+.ex-item .ex-card:hover {
+    opacity: 1;
+    filter: brightness(1);
+    background: black;
+    transform: translateY(-5px);
+}
+
+/* Improve text visibility on hover */
+.ex-item .ex-card:hover h3,
+.ex-item .ex-card:hover ul {
+    color: white;
+}
+
+/* Respect reduced-motion accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+    .ex-item .ex-card {
+        transition: none;
+        transform: none;
+        opacity: 0.9;
+    }
+}
+
+
+/* =========================================
+   CONTACT - HORIZONTAL CONNECTION NETWORK
+   ========================================= */
+
+.contact-section {
+    position: relative;
+    padding: 100px 25px 55px;
+    background: #1a080a;
+    color: #fff4e8;
+    overflow: hidden;
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-label {
+    color: #d99a9f;
+    font-size: 13px;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+}
+
+.contact-title {
+    font-size: clamp(38px, 6vw, 72px);
+    line-height: 1.12;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+}
+
+.contact-title span {
+    color: #d99a9f;
+}
+
+.contact-description {
+    max-width: 570px;
+    margin: 0 auto;
+    color: #c7afb3;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Horizontal network */
+
+.contact-network {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    gap: 35px;
+    max-width: 1000px;
+    margin: 85px auto 65px;
+}
+
+/* Lines connecting the cards */
+
+.network-lines {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    transform: translateY(-50%);
+    overflow: visible;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.network-line {
+    fill: none;
+    stroke: #a85c68;
+    stroke-width: 2;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    transition: stroke-dashoffset 1.2s ease;
+}
+
+.contact-section.is-visible .network-line {
+    stroke-dashoffset: 0;
+}
+
+/* Contact cards */
+
+.contact-node {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 240px;
+    padding: 30px 20px;
+
+    color: #fff4e8;
+    text-align: center;
+    text-decoration: none;
+
+    background: #35151d;
+    border: 1px solid rgba(217, 154, 159, 0.4);
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+    transition:
+        opacity 0.7s ease,
+        transform 0.5s ease,
+        background-color 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+/* Scroll entrance directions */
+
+.email-node {
+    transform: translateX(-70px);
+}
+
+.linkedin-node {
+    transform: translateY(35px);
+}
+
+.github-node {
+    transform: translateX(70px);
+}
+
+/* Reveal cards */
+
+.contact-section.is-visible .contact-node {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.contact-section.is-visible .email-node {
+    transition-delay: 0.15s;
+}
+
+.contact-section.is-visible .linkedin-node {
+    transition-delay: 0.35s;
+}
+
+.contact-section.is-visible .github-node {
+    transition-delay: 0.55s;
+}
+
+/* Icons */
+
+.node-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 58px;
+    height: 58px;
+    margin-bottom: 22px;
+
+    border: 1px solid #d99a9f;
+    border-radius: 50%;
+
+    color: #f0b5bb;
+    font-size: 25px;
+    font-weight: 700;
+
+    transition:
+        color 0.35s ease,
+        background-color 0.35s ease,
+        transform 0.35s ease;
+}
+
+/* Card text */
+
+.contact-node h3 {
+    margin: 0 0 12px;
+    font-size: 25px;
+    font-weight: 650;
+    letter-spacing: 0;
+    line-height: 1.3;
+    word-spacing: normal;
+}
+
+.contact-node p {
+    margin: 0 0 20px;
+    color: #c7afb3;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.node-link {
+    color: #e6a8af;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
+
+/* Hover interaction */
+
+.contact-node:hover,
+.contact-node:focus-visible {
+    background: #51232e;
+    border-color: #f0b5bb;
+    box-shadow: 0 0 35px rgba(217, 154, 159, 0.2);
+}
+
+.contact-section.is-visible .contact-node:hover,
+.contact-section.is-visible .contact-node:focus-visible {
+    transform: translateY(-8px);
+}
+
+.contact-node:hover .node-icon,
+.contact-node:focus-visible .node-icon {
+    color: #1a080a;
+    background: #f0b5bb;
+    transform: scale(1.1);
+}
+
+/* Footer */
+
+.contact-footer {
+    margin-top: 15px;
+    color: #a9898e;
+    font-size: 11px;
+    letter-spacing: 3px;
+    line-height: 1.8;
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 700px) {
+    .contact-section {
+        padding: 75px 20px 40px;
+    }
+
+    .contact-network {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        max-width: 420px;
+        margin: 55px auto 40px;
+    }
+
+    .network-lines {
+        display: none;
+    }
+
+    .contact-node {
+        min-height: 190px;
+        padding: 25px 20px;
+    }
+
+    .email-node,
+    .linkedin-node,
+    .github-node {
+        transform: translateY(30px);
+    }
+
+    .contact-section.is-visible .contact-node {
+        transform: translateY(0);
+    }
+
+    .contact-section.is-visible .contact-node:hover,
+    .contact-section.is-visible .contact-node:focus-visible {
+        transform: translateY(-5px);
+    }
+
+    .contact-section.is-visible .email-node {
+        transition-delay: 0.1s;
+    }
+
+    .contact-section.is-visible .linkedin-node {
+        transition-delay: 0.25s;
+    }
+
+    .contact-section.is-visible .github-node {
+        transition-delay: 0.4s;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-node,
+    .network-line,
+    .node-icon {
+        transition: none !important;
+    }
+
+    .contact-node {
+        opacity: 1;
+        transform: none;
+    }
+
+    .network-line {
+        stroke-dashoffset: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    
+
+
+
+
+
+
+
+
+

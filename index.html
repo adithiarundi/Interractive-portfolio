@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adithi — Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="hero">
+        <div class="navi">
+             <nav>
+                <a href="#about"> ABOUT ME </a>
+                <a href="#skills"> SKILLS </a>
+                <a href="#ex"> EXPERIENCES </a>
+                <a href="#contact"> CONTACT ME </a>
+            </nav>
+        </div>
+        <div class="intro">
+            <p class="small-text">HELLO, I'M</p><br>
+            <h1>ADITHI</h1><br>
+            <h3>ARUNDI HANSIKA KANKANAMGE</h3>
+            <p class="description">
+                Computer Science Undergraduate
+            <br> 
+            Aviation & Space Enthusiast | Animation • Graphic Design • 3D | Lifelong Learner
+            </p>
+        </div>
+
+        <div class="girl-container">
+            <video
+                id="girlVideo" src="assets\web.mp4" muted playsinline preload="auto">
+            </video>
+        </div>
+
+        <div class="cursor">
+            <span></span>
+        </div>
+       
+    </main>
+    
+    <script src="script.js"></script>
+
+    <!-- ABOUT ME SECTION -->
+<section id="about" class="about-section">
+    <!-- Background Stars Video Track -->
+    <video autoplay muted loop playsinline class="stars-video"> 
+        <source src="assets\stars.mp4" type="video/mp4"> 
+    </video> 
+    
+    <!-- FIX: Open the overlay, but DO NOT close it immediately -->
+    <div class="stars-video-overlay">
+
+        <div class="about-container">
+            <h2 class="section-title">About Me</h2>
+            
+            <div class="about-content">
+                <!-- Left Side: Profile Text -->
+                <div class="about-text">
+                    <p>
+                        I am a passionate <strong>Computer Science Undergraduate</strong> dedicated to bridging the gap between clean code and immersive digital experiences. My journey is driven by an endless curiosity for how things work—whether it's building modern software applications or exploring the infinite horizons of <strong>Aviation & Space</strong>.
+                    </p>
+                    <p>
+                        When I am not typing away at code, you will find me blending technology with creativity. I specialize in bringing ideas to life through <strong>graphic design, animation, and 3D modeling</strong>. I view every project as a canvas to combine logical engineering with visual storytelling.
+                    </p>
+                    <p>
+                        As a lifelong learner, I am always eager to master new frameworks, dive into spatial computing, or take on challenging projects that push my creative boundaries.
+                    </p>
+                </div>
+                
+                <!-- Right Side: Frame Illustration -->
+                <div class="about-visual">
+                    <div class="visual-box">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- FIX: Close the stars-video-overlay here at the very bottom -->
+</section>
+
+
+<section id="skills" class="skills-section">
+
+    <div class="skills-container">
+
+        <h2 class="skills-title">My Skills</h2>
+
+        <div class="skills-content">
+
+            <!-- 1. Development -->
+            <div class="skill-box dev-box slide-left">
+
+                <div class="box-header left-header">
+                    <span class="skill-arrow">→</span>
+                    <h3>Development</h3>
+                </div>
+
+                <ul class="skill-items column-list">
+                    <li>Python</li>
+                    <li>C#</li>
+                    <li>PHP</li>
+                    <li>HTML / CSS</li>
+                    <li>JavaScript</li>
+                    <li>MySQL</li>
+                    <li>Git & GitHub</li>
+                    <li>NumPy</li>
+                    <li>Matplotlib</li>
+                </ul>
+
+            </div>
+
+
+            <!-- 2. Design -->
+            <div class="skill-box design-box slide-right">
+
+                <div class="box-header right-header">
+                    <h3>Design</h3>
+                    <span class="skill-arrow">←</span>
+                </div>
+
+                <ul class="skill-items column-list">
+                    <li>Graphic Design</li>
+                    <li>UI / UX</li>
+                    <li>Figma</li>
+                    <li>Branding</li>
+                    <li>Social Media Design</li>
+                    <li>Visual Communication</li>
+                    <li>Basic Motion Design</li>
+                </ul>
+
+            </div>
+
+
+            <!-- 3. Tools -->
+            <div class="skill-box tools-box slide-left">
+
+                <div class="box-header left-header">
+                    <span class="skill-arrow">→</span>
+                    <h3>Tools</h3>
+                </div>
+
+                <ul class="skill-items standard-list">
+                    <li>VS Code</li>
+                    <li>Visual Studio</li>
+                    <li>GitHub</li>
+                    <li>Figma</li>
+                    <li>Canva</li>
+                </ul>
+
+            </div>
+
+
+            <!-- 4. Professional -->
+            <div class="skill-box professional-box slide-right">
+
+                <div class="box-header right-header">
+                    <h3>Professional</h3>
+                    <span class="skill-arrow">←</span>
+                </div>
+
+                <ul class="skill-items standard-list">
+                    <li>Problem Solving</li>
+                    <li>Critical Thinking</li>
+                    <li>Lifelong Learning</li>
+                    <li>Team Collaboration</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="ex" class="ex-section">
+    <div class="ex-container">
+
+        <h2 class="ex-title">My Experiences</h2>
+
+        <div class="ex-content">
+
+            <div class="ex-item left">
+                <div class="ex-card">
+                    <h3>Secretary</h3><br>
+                    <ul>
+                        <li>Table Tennis Club - 2026</li>
+                        <li>NSBM Green University</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ex-item right">
+                <div class="ex-card">
+                    <h3>Creative Design & Branding Lead</h3><br>
+                    <ul>
+                        <li>CompuVate Association - 2026</li>
+                        <li>NSBM Green University</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ex-item left">
+                <div class="ex-card">
+                    <h3>SecretaryTeam Member</h3><br>
+                    <ul>
+                        <li>IEEEXtreme 20.0 - 2026</li>
+                        <li>NSBM Green University</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ex-item right">
+                <div class="ex-card">
+                    <h3>Team Member</h3><br>
+                    <ul>
+                        <li>FOSS Community - 2026</li>
+                        <li>NSBM Green University</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ex-item left">
+                <div class="ex-card">
+                    <h3>Team Member</h3><br>
+                    <ul>
+                        <li>AWS SBG Association - 2025</li>
+                        <li>NSBM Green University</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ex-item right">
+                <div class="ex-card">
+                    <h3>Chief Coordinator</h3><br>
+                    <ul>
+                        <li>Leo Club of Colombo Nights - 2025</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section id="contact" class="contact-section">
+    <div class="contact-container">
+
+        <p class="contact-label">LET'S CONNECT</p>
+
+        <h2 class="contact-title">
+            Good things happen<br>
+            when we <span>connect.</span>
+        </h2>
+
+        <p class="contact-description">
+            Have an idea, an opportunity, or something interesting to discuss?
+            Let's connect and make something meaningful.
+        </p>
+
+        <div class="contact-network">
+
+            <!-- Connecting lines -->
+            <svg class="network-lines"
+                 viewBox="0 0 900 240"
+                 preserveAspectRatio="none"
+                 aria-hidden="true">
+
+                <line class="network-line"
+                      x1="150" y1="120"
+                      x2="450" y2="120" />
+
+                <line class="network-line"
+                      x1="450" y1="120"
+                      x2="750" y2="120" />
+            </svg>
+
+            <!-- Email -->
+            <a href="mailto:adithiarundi@gmail.com"
+               class="network-node contact-node email-node"
+               aria-label="Send me an email">
+
+                <span class="node-icon">✉</span>
+                <h3>Email</h3>
+                <p>Drop me a message</p>
+                <span class="node-link">Send a message ↗</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/adithi-hansika/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="network-node contact-node linkedin-node"
+               aria-label="Visit my LinkedIn profile">
+
+                <span class="node-icon">in</span>
+                <h3>LinkedIn</h3>
+                <p>Let's network</p>
+                <span class="node-link">Connect with me ↗</span>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/adithiarundi"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="network-node contact-node github-node"
+               aria-label="Visit my GitHub profile">
+
+                <span class="node-icon">⌘</span>
+                <h3>GitHub</h3>
+                <p>Explore my projects</p>
+                <span class="node-link">View my work ↗</span>
+            </a>
+                
+        </div>
+
+        <p class="contact-footer">
+            A LITTLE CONNECTION CAN LEAD TO SOMETHING BIG.
+        </p>
+
+    </div>
+</section>
+
+
+
+</body>
+</html>
