@@ -6,7 +6,6 @@ let targetTime = 0;
 let currentTime = 0;
 let started = false;
 
-/* Mouse, pen AND touch: swipe/drag sideways across the hero to scrub the video */
 hero.addEventListener("pointermove", (e) => {
     if (cursor && e.pointerType === "mouse") {
         cursor.classList.add("on");
