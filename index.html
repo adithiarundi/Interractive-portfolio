@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adithi — Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
 </head>
 
 <body>
@@ -30,7 +31,7 @@
 
         <div class="girl-container">
             <video
-                id="girlVideo" src="assets\web.mp4" muted playsinline preload="auto">
+                id="girlVideo" src="assets/web.mp4" muted playsinline preload="auto">
             </video>
         </div>
 
@@ -40,13 +41,12 @@
        
     </main>
     
-    <script src="script.js"></script>
 
     <!-- ABOUT ME SECTION -->
 <section id="about" class="about-section">
     <!-- Background Stars Video Track -->
     <video autoplay muted loop playsinline class="stars-video"> 
-        <source src="assets\stars.mp4" type="video/mp4"> 
+        <source src="assets/stars.mp4" type="video/mp4"> 
     </video> 
     
     <!-- FIX: Open the overlay, but DO NOT close it immediately -->
@@ -86,7 +86,7 @@
 
     <div class="skills-container">
 
-        <h2 class="skills-title">My Skills</h2>
+        <h2 class="skills-title">My <span>Skills</span></h2><br>
 
         <div class="skills-content">
 
@@ -179,7 +179,7 @@
 <section id="ex" class="ex-section">
     <div class="ex-container">
 
-        <h2 class="ex-title">My Experiences</h2>
+        <h2 class="ex-title">My <span>Experiences </span></h2><br>
 
         <div class="ex-content">
 
@@ -205,7 +205,7 @@
 
             <div class="ex-item left">
                 <div class="ex-card">
-                    <h3>SecretaryTeam Member</h3><br>
+                    <h3>Team Member</h3><br>
                     <ul>
                         <li>IEEEXtreme 20.0 - 2026</li>
                         <li>NSBM Green University</li>
@@ -327,5 +327,6 @@
 
 
 
+<script src="script.js"></script>
 </body>
 </html>
