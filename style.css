@@ -58,22 +58,23 @@ body {
 .small-text {
     font-size: 20px;
     letter-spacing: 5px;
-    margin-bottom: 15px;
+    margin-top: 100px;
 }
 
 h1 {
-    font-size: clamp(70px, 12vw, 180px);
+    font-size: 150px;
     line-height: 0.8;
     font-weight: 800;
     letter-spacing: -8px;
 }
 
 h3 {
-    font-size: clamp(25px, 5vw, 35px);
-    letter-spacing: 1px;
+    font-size: 28px;
+    letter-spacing: 2px;
     line-height: 0.8;
     font-weight: 650;
-    word-spacing: 23px; 
+    word-spacing: 23px;
+    
 }
 
 .description {
@@ -167,7 +168,7 @@ h3 {
 .navi nav {
     display: flex;
     justify-content: center; /* Centers the menu on the screen */
-    gap: 200px;               /* Clean spacing between items */
+    gap: 150px;               /* Clean spacing between items */
     padding: 25px 0;
     position: absolute;      /* Sits cleanly on top of the hero section */
     top: 30px;
@@ -180,7 +181,7 @@ h3 {
     color: #ffffff;          /* Adjust based on your background color */
     text-decoration: none;
     transition: all 0.3s ease;
-    font-size: 15px;
+    font-size: 10px;
     letter-spacing: 5px;
     margin-bottom: 15px;
     border: 1px solid #ffffff;/* The outline color and thickness */
@@ -249,22 +250,22 @@ h3 {
 }
 
 .section-title {
-    margin-bottom: 10px;
+    margin-bottom: 9px;
     color: #1a080a; 
-    font-size: clamp(40px, 10vw, 80px);
+    font-size: 50px;
     font-weight: 800;
     line-height: 0.8;
     letter-spacing: -4px;
     padding-top: 100px;
     z-index: 2;
-    padding-left: 45px;
+    padding-left: 170px;
 }
 
 
 /* Layout split: Text on the left, visual elements on the right */
 .about-content {
     display: flex;
-    gap: 64px;
+    gap: 62px;
     align-items: center;
     z-index: 2;
 }
@@ -276,10 +277,11 @@ h3 {
 }
 
 .about-text p {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.8;
     color: #051524; 
     margin-bottom: 20px;
+    padding-left: 100px;
 }
 
 .about-text strong {
@@ -295,21 +297,21 @@ h3 {
 
 .visual-box {
     background-image: url('assets/me.jpeg');
-    background-size: 100% auto;       /* Forces your photo to scale down and fill the entire 300x350 box */   /* Centers your face perfectly inside the box frame */
+    background-size: cover;       /* Forces your photo to scale down and fill the entire 300x350 box */   /* Centers your face perfectly inside the box frame */
     background-repeat: no-repeat;  
 
-    width: 300px;
-    height: 350px;
+    width: 250px;
+    height: 290px;
     border: 2px dashed #670626; /* Creative layout boundary matching a developer aesthetic */
     border-radius: 15px;
-    display: flex;
+    
     justify-content: center;
     align-items: center;
     color: #670626;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 1px;
     transition: all 0.4s ease;
-    margin-right: 50px;
+    margin-right: 150px;
 }
 /* ==========================================================================
    SKILLS SECTION STYLES (SINGLE-COLUMN STACKED LAYOUT)
@@ -336,15 +338,19 @@ h3 {
 
 /* Centered Title at Top */
 .skills-title {
-    text-align: center;
-    font-size: 2.8rem;
-    color: #FFFD74;
-    letter-spacing: 3px;
-    margin-bottom: 80px; 
-    font-size: clamp(40px, 10vw, 80px);
+    font-size: 60px;
+    line-height: 1.12;
     font-weight: 800;
-    line-height: 0.8;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+    color: #fff4e8;
+    text-align: center;
 }
+
+.skills-title span {
+    color: #d99a9f;
+}
+
 
 .skills-content {
     display: flex;
@@ -356,7 +362,7 @@ h3 {
 .skill-box {
     background: white;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 50px 60px; /* Balanced padding for a wide aspect ratio */
+    padding: 30px 40px; /* Balanced padding for a wide aspect ratio */
     border-radius: 20px;
     height: fit-content;
     width: 100%; /* Forces the box to stretch fully to the right edge */
@@ -515,14 +521,17 @@ h3 {
 }
 
 .ex-title {
-    text-align: center;
-    font-size: 2.8rem;
-    color: #fdf59c;
-    letter-spacing: 3px;
-    margin-bottom: 80px; 
-    font-size: clamp(40px, 10vw, 80px);
+    font-size: 60px;
+    line-height: 1.12;
     font-weight: 800;
-    line-height: 0.8;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+    color: #fff4e8;
+    text-align: center;
+}
+
+.ex-title span {
+    color: #d99a9f;
 }
 
 /* Timeline container */
@@ -565,7 +574,7 @@ h3 {
 .ex-card {
     background: white;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 50px 60px; /* Balanced padding for a wide aspect ratio */
+    padding: 30px 40px; /* Balanced padding for a wide aspect ratio */
     border-radius: 20px;
     height: fit-content;
     width: 100%; /* Forces the box to stretch fully to the right edge */
@@ -762,13 +771,13 @@ h3 {
 
 .contact-label {
     color: #d99a9f;
-    font-size: 13px;
+    font-size: 10px;
     letter-spacing: 5px;
     margin-bottom: 25px;
 }
 
 .contact-title {
-    font-size: clamp(38px, 6vw, 72px);
+    font-size: 40px;
     line-height: 1.12;
     font-weight: 800;
     letter-spacing: -2px;
@@ -783,7 +792,7 @@ h3 {
     max-width: 570px;
     margin: 0 auto;
     color: #c7afb3;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.8;
 }
 
@@ -794,7 +803,7 @@ h3 {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: center;
-    gap: 35px;
+    gap: 60px;
     max-width: 1000px;
     margin: 85px auto 65px;
 }
@@ -950,7 +959,7 @@ h3 {
 
 .contact-section.is-visible .contact-node:hover,
 .contact-section.is-visible .contact-node:focus-visible {
-    transform: translateY(-8px);
+    transform: translateY(-20px);
 }
 
 .contact-node:hover .node-icon,
@@ -963,7 +972,7 @@ h3 {
 /* Footer */
 
 .contact-footer {
-    margin-top: 15px;
+    margin-top: 0px;
     color: #a9898e;
     font-size: 11px;
     letter-spacing: 3px;
